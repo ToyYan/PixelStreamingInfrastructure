@@ -13,8 +13,9 @@ document.body.onload = function() {
 	const initialSettings = {
 		MinQP: 10,
 		MaxQP: 40,
+		WebRTCFPS: 30,
 		HoveringMouse: !('ontouchend' in document),
-		Resolution: '2K'
+		Resolution: '1080P'
 	};
 
 	// Create a config object

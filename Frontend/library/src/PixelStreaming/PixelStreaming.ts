@@ -286,8 +286,8 @@ export class PixelStreaming {
             OptionParameters.Resolution,
             (newValue: string) => {
                 const resMap: Record<string, [number, number]> = {
-                    '2K': [1920, 1080],
-                    '4K': [3840, 2160]
+                    '1080P': [1920, 1080],
+                    '2K': [2560, 1440]
                 }
                 console.log(newValue);
                 if (this._webRtcController) {

@@ -212,8 +212,8 @@ export class Config {
                 OptionParameters.Resolution,
                 'Resolution',
                 'Unreal Engine Render Resolution.',
-                '2K',
-                ['2K', '4K'],
+                '1080P',
+                ['1080P', '2K'],
                 useUrlParams
             )
         );

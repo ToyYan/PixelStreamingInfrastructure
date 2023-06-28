@@ -94,6 +94,7 @@ const isTextId = (id: string): id is TextParametersIds =>
 export class OptionParameters {
     static PreferredCodec = 'PreferredCodec' as const;
     static StreamerId = 'StreamerId' as const;
+    static Resolution = 'Resolution' as const;
 }
 
 export type OptionParametersKeys = Exclude<
@@ -202,6 +203,17 @@ export class Config {
                 'The ID of the streamer to stream.',
                 '',
                 [],
+                useUrlParams
+            )
+        );
+        this.optionParameters.set(
+            OptionParameters.Resolution,
+            new SettingOption(
+                OptionParameters.Resolution,
+                'Resolution',
+                'Unreal Engine Render Resolution.',
+                '2K',
+                ['2K', '4K'],
                 useUrlParams
             )
         );

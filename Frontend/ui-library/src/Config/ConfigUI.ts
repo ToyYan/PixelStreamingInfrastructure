@@ -212,6 +212,12 @@ export class ConfigUI {
             settingsElem,
             'UI'
         );
+
+        this.addSettingOption(
+            viewSettingsSection,
+            this.optionParametersUi.get(OptionParameters.Resolution)
+        );
+        
         this.addSettingFlag(
             viewSettingsSection,
             this.flagsUi.get(Flags.MatchViewportResolution)

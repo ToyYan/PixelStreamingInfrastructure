@@ -1664,6 +1664,13 @@ export class WebRtcPlayerController {
         }
     }
 
+    sendResolution(width: number, height: number) {
+        Logger.Log(Logger.GetStackTrace(), `Resolution=${width}x${height}\n`, 6);
+        this.sendDescriptorController.emitUIInteraction({
+            'Console': `r.setres ${width}x${height}w`
+        });
+    }
+
     /**
      * Send the { WebRTC.MinBitrate: SomeNumber }} command to UE to set 
      * the minimum bitrate that we allow WebRTC to use 

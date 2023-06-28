@@ -282,6 +282,21 @@ export class PixelStreaming {
             }
         );
 
+        this.config._addOnOptionSettingChangedListener(
+            OptionParameters.Resolution,
+            (newValue: string) => {
+                const resMap: Record<string, [number, number]> = {
+                    '2K': [1920, 1080],
+                    '4K': [3840, 2160]
+                }
+                console.log(newValue);
+                if (this._webRtcController) {
+                    const [width, height] = resMap[newValue];
+                    this._webRtcController.sendResolution(width, height);
+                }
+            }
+        );
+
         this.config._registerOnChangeEvents(this._eventEmitter);
     }
 

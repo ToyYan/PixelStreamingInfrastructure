@@ -472,7 +472,7 @@ export class Application {
      * Shows or hides the settings panel if clicked
      */
     settingsClicked() {
-        this.statsPanel.hide();
+        this.statsPanel?.hide();
         this.settingsPanel.toggleVisibility();
     }
 

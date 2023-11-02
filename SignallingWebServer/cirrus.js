@@ -2,6 +2,7 @@
 
 //-- Server side logic. Serves pixel streaming WebRTC-based page, proxies data back to Streamer --//
 
+var log = require('./log');
 var express = require('express');
 var app = express();
 
@@ -715,6 +716,9 @@ playerMessageHandlers.set('peerDataChannelsReady', forwardPlayerMessage);
 console.logColor(logging.Green, `WebSocket listening for Players connections on :${httpPort}`);
 let playerServer = new WebSocket.Server({ server: config.UseHTTPS ? https : http});
 playerServer.on('connection', function (ws, req) {
+	var ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
+	ws.ip = ip;
+	log.info(`ip地址${ip}进入链接`);
 	var url = require('url');
 	const parsedUrl = url.parse(req.url);
 	const urlParams = new URLSearchParams(parsedUrl.search);
@@ -764,6 +768,8 @@ playerServer.on('connection', function (ws, req) {
 
 	ws.on('close', function(code, reason) {
 		console.logColor(logging.Yellow, `player ${playerId} connection closed: ${code} - ${reason}`);
+
+		log.info(`ip地址${ip}断开链接`);
 		onPlayerDisconnected(playerId);
 	});
 

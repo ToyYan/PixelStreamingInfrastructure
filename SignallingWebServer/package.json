@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dayjs": "^1.11.10",
     "express": "^4.18.2",
     "express-rate-limit": "^6.7.0",
     "express-session": "^1.15.6",
@@ -30,6 +31,7 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "run-script-os": "^1.1.6",
+    "winston": "^3.11.0",
     "ws": "^7.1.2",
     "y18n": "^5.0.5",
     "yargs": "^15.3.0"

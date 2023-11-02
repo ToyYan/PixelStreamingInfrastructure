@@ -15,7 +15,7 @@ logging.RegisterConsoleLogger();
 // Command line argument --configFile needs to be checked before loading the config, all other command line arguments are dealt with through the config object
 
 const defaultConfig = {
-	UseFrontend: false,
+	UseFrontend: true,
 	UseMatchmaker: false,
 	UseHTTPS: false,
 	HTTPSCertFile: './certificates/client-cert.pem',

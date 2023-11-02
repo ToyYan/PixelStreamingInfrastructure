@@ -177,6 +177,9 @@ export class PixelStreamingApplicationStyle {
         '#settingsBtn, #statsBtn': {
             cursor: 'pointer'
         },
+        '#statsBtn': {
+            display: 'none'
+        },
         '#uiFeatures button': {
             backgroundColor: 'var(--color7)',
             border: '1px solid var(--color7)',

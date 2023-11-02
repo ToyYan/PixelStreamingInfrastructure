@@ -519,23 +519,23 @@ export class PixelStreaming {
 
         const useUrlParams = this.config.useUrlParams;
         const urlParams = new URLSearchParams(window.location.search);
-        if (settings.EncoderSettings) {
-            this.config.setNumericSetting(
-                NumericParameters.MinQP,
-                // If a setting is set in the URL, make sure we respect that value as opposed to what the application sends us
-                (useUrlParams && urlParams.has(NumericParameters.MinQP)) 
-                    ? Number.parseInt(urlParams.get(NumericParameters.MinQP)) 
-                    : settings.EncoderSettings.MinQP
-            );
+        // if (settings.EncoderSettings) {
+        //     this.config.setNumericSetting(
+        //         NumericParameters.MinQP,
+        //         // If a setting is set in the URL, make sure we respect that value as opposed to what the application sends us
+        //         (useUrlParams && urlParams.has(NumericParameters.MinQP)) 
+        //             ? Number.parseInt(urlParams.get(NumericParameters.MinQP)) 
+        //             : settings.EncoderSettings.MinQP
+        //     );
 
             
-            this.config.setNumericSetting(
-                NumericParameters.MaxQP,
-                (useUrlParams && urlParams.has(NumericParameters.MaxQP)) 
-                    ? Number.parseInt(urlParams.get(NumericParameters.MaxQP)) 
-                    : settings.EncoderSettings.MaxQP
-            );
-        }
+        //     this.config.setNumericSetting(
+        //         NumericParameters.MaxQP,
+        //         (useUrlParams && urlParams.has(NumericParameters.MaxQP)) 
+        //             ? Number.parseInt(urlParams.get(NumericParameters.MaxQP)) 
+        //             : settings.EncoderSettings.MaxQP
+        //     );
+        // }
         if (settings.WebRTCSettings) {
             this.config.setNumericSetting(
                 NumericParameters.WebRTCMinBitrate,
@@ -550,12 +550,12 @@ export class PixelStreaming {
                     : settings.WebRTCSettings.MaxBitrate / 1000 /* bps to kbps */
                 
             );
-            this.config.setNumericSetting(
-                NumericParameters.WebRTCFPS,
-                (useUrlParams && urlParams.has(NumericParameters.WebRTCFPS)) 
-                    ? Number.parseInt(urlParams.get(NumericParameters.WebRTCFPS))
-                    : settings.WebRTCSettings.FPS
-            );
+            // this.config.setNumericSetting(
+            //     NumericParameters.WebRTCFPS,
+            //     (useUrlParams && urlParams.has(NumericParameters.WebRTCFPS)) 
+            //         ? Number.parseInt(urlParams.get(NumericParameters.WebRTCFPS))
+            //         : settings.WebRTCSettings.FPS
+            // );
         }
     }
 
@@ -726,6 +726,10 @@ export class PixelStreaming {
      */
     public get webSocketController() {
         return this._webRtcController.webSocketController;
+    }
+
+    public get webRtcController(): WebRtcPlayerController{
+        return this._webRtcController;
     }
 
     /**
